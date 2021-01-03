@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        form,
+        h3 {
+            text-align: left;
+            padding: 10%;
+        }
+
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <meta name="NetsparkQuiltingResult" total-length="1012" removed="0" rules-found="w2339,w2701" />
+</head>
+
+<body>
+    <div class="modal show" id="loginModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><strong>Sign In</strong></h3>
+                </div>
+                <form>
+                    <label for="username">User name:</label><br>
+                    <input type="text" id="username" class="form-control" name="username" placeholder="User name"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="number" id="password" class="form-control" name="password"
+                        placeholder="Password"><br><br>
+                    <div class="vertical-center">
+                        <button type="submit" class="btn btn-default" onclick="checkLogin()"> Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $("#loginModal").modal({
+            backdrop: "static"
+        });
+        async function checkLogin() {
+            var user = (await fetch("user.json").then(response => response.json())).User;
+            //var user = JSON.parse(file).User;
+
+            if ((document.getElementById("username").value == user.userName) &&
+                (document.getElementById("password").value == user.password)) {
+                alert("You are signed in!");
+                window.location.href = "Exercise3.html";
+            } else {
+                alert("The credentials are not valid")
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+            }
+        }
+
+        function submitForm() {
+            var userName = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var email = new RegExp(
+                "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                );
+            if ((email.test(userName)) && (password.length >= 8)) {
+                window.location.href = "Exercise3.html";
+            } else {
+                alert("fail");
+            }
+        }
+    </script>
+</body>
+
+</html>

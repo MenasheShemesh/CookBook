@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        form,
+        h3 {
+            text-align: left;
+            padding: 10%;
+        }
+
+        :root {
+            --jumbotron-padding-y: 3rem;
+        }
+
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-input {
+            border-color: red;
+        }
+
+        .jumbotron {
+            padding-top: var(--jumbotron-padding-y);
+            padding-bottom: var(--jumbotron-padding-y);
+            margin-bottom: 0;
+            background-color: #fff;
+        }
+
+        .card-body {
+            cursor: pointer;
+            color: teal;
+        }
+
+        @media (min-width: 768px) {
+            .jumbotron {
+                padding-top: var(--jumbotron-padding-y);
+                padding-bottom: var(--jumbotron-padding-y);
+            }
+        }
+
+        .jumbotron p:last-child {
+            margin-bottom: 0;
+        }
+
+        .jumbotron-heading {
+            font-weight: 300;
+        }
+
+        .jumbotron .container {
+            max-width: 40rem;
+        }
+        .hide-alertBox{
+            display: none;
+        }
+
+        #head-section {
+            color: rgb(212, 186, 120);
+            background-color: cyan;
+        
+        }
+
+    </style>
+    <meta charset="UTF-8" />
+
+
+
+    <meta name="NetsparkQuiltingResult" total-length="9105" removed="0"
+        rules-found="w3070,w3140,w1413,w1418,w1419,w7365,w8491,w2339,w2701,w3089,w5493,w7624,w4438" />
+</header>
+
+<body onload="loadData()">
+    <main role="main">
+        <section id="head-section" class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading"><em>Menashe CookBook</em></h1>
+
+                <p class="lead text-muted"></p>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addRecipeModal">Add
+                    recipe</button>
+
+                <div class="modal fade" id="addRecipeModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="saveRecipe-title"><strong>Add Recipe</strong></h3>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="modal-form">
+                                    <p title="Enter the name of the food">Food name</p>
+                                    <input class="modal-input form-control" type="text"
+                                        title="Enter the name of the food" placeholder="Food name" name="food"
+                                        required /><br>
+                                    <p title="Enter list of ingredients">Ingredients</p>
+                                    <textarea class="modal-input form-control" name="ingredients" rows="8"
+                                        cols="15"></textarea><br>
+                                    <p title="Enter how to prepare the food">Preparation</p>
+                                    <textarea class="modal-input form-control" name="preparation" rows="8"
+                                        cols="25"></textarea><br>
+                                 <div id="error-alert" class="alert alert-danger hide-alertBox" role="alert"></div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default" onclick="saveRecipe()">Save</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div id="cards-div" class="row">
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="displayRecipeModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="displayRecipe-title"></h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="recipeContent"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+</script>
+
+</html>
