@@ -2,8 +2,7 @@ var recipes;
 async function loadData() {
 
     var recipe, newDiv;
-    var file = await fetch("file.json").then(response => response.text());
-    recipes = JSON.parse(file).Recipes;
+    recipes = (await fetch("file.json").then(response => response.json())).Recipes;
 
     for (recipe of recipes) {
         newDiv = '<div class="col-md-4 rounded text-center">';
@@ -32,8 +31,20 @@ function saveRecipe() {
     else {
         var recipe = {
             food: inputs[0].value,
-            Ingredients: inputs[1].value,
-            Preparation: inputs[2].value
+            ingredients:[],
+            preparation:[]
+        }
+        for(let i=1;i<inputs.length;i++)
+        {
+            if(inputs[i].classList.contains("ingredient-input"))
+            {
+                recipe.ingredients.push(inputs[i].value);
+            }
+            else
+                if(inputs[i].classList.contains("preparation-input")){
+                    recipe.preparation.push(inputs[i].value);
+                }
+
         }
         if (recipes.find(value => {
             return value.food == recipe.food
@@ -46,8 +57,7 @@ function saveRecipe() {
                 document.getElementById("error-alert").classList.remove("hide-alertBox");
                 document.getElementById("error-alert").innerHTML = "This recipe is already exists!";
             }
-        } else
-        {
+        } else {
             saveDataToFile(JSON.stringify(recipe));
             $('#addRecipeModal').modal('hide');
         }
@@ -64,6 +74,7 @@ function clearModal() {
     inputs[0].readOnly = false;
     document.getElementById("saveRecipe-title").innerHTML = "Add Recipe";
 }
+
 function validateForm(elements) {
     var valid = true;
     for (element of elements) {
@@ -113,20 +124,25 @@ function saveDataToFile(recipe) {
 function displayRecipe(element) {
     $('#displayRecipeModal').modal('show');
     var content = document.getElementById(element.innerHTML);
-    if (content.display) {
-        content.innerHTML = "";
-    } else {
-        var recipe = recipes.find(value => {
-            return value.food == element.innerHTML
-        });
-
-        var recipeContent = document.getElementById("recipeContent");
-        recipeContent.innerHTML = "";
-        for (x in recipe) {
-            if (x != "food") {
-                recipeContent.innerHTML += "<strong>" + x + "</strong><br>" + recipe[x].replace(/\n/g, '<br>') + "<br><br>";
-            }
-        }
+    var recipe = recipes.find(value => {
+        return value.food == element.innerHTML
+    });
+    let ingredientsContent = document.getElementById("ingredients-content")
+    ingredientsContent.innerHTML = "";
+    for (ingredient of recipe.ingredients) {
+        ingredientsContent.innerHTML += ingredient + "<br>";
     }
+    let preparationContent = document.getElementById("preparation-content")
+    preparationContent.innerHTML = "";
+    for (let i = 0; i < recipe.preparation.length; i++) {
+        preparationContent.innerHTML += i+1 + ") " + recipe.preparation[i] + "<br>";
+    }
+    //recipeContent.innerHTML += "<strong>" + x + "</strong><br>" + recipe[x].replace(/\n/g, '<br>') + "<br><br>";
     document.getElementById("displayRecipe-title").innerHTML = "<strong>" + recipe.food + "</strong>";
+}
+function addInputTextBox(container) {
+    let template = container.firstElementChild.cloneNode();
+    template.value="";
+    container.appendChild(template);
+    container.appendChild(document.createElement("br"));
 }

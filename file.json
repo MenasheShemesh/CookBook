@@ -2,63 +2,73 @@
   "Recipes": [
     {
       "food": "Chocolate cake",
-      "Ingredients": "500 g flour\nCup milk\nHalf cup sugar\nPack of dark chocolate",
-      "Preparation": "1) Mix all the ingredients\n2) bake the cake a hour"
+      "ingredients": [
+        "500 g flour",
+        "Cup milk",
+        "Half cup sugar",
+        "Pack of dark chocolate"
+      ],
+      "preparation": [
+        "Mix all the ingredients",
+        "bake the cake a hour"
+      ]
     },
     {
       "food": "Falafel",
-      "Ingredients": "500 g humus\nkusbara",
-      "Preparation": "1) Grind all the ingredients\n2) Fry the Falafel balls"
+      "ingredients": [
+        "500 g humus",
+        "kusbara"
+      ],
+      "preparation": [
+        "Grind all the ingredients",
+        "Fry the Falafel balls"
+      ]
     },
     {
       "food": "Ptitim",
-      "Ingredients": "pack Ptitim of Osem\none onion\nspoon of soup powder",
-      "Preparation": "1) Cut the onion, and spy it.\n2) Add the Ptitim\n3) Pour boiling water\n4) Add the soup powder\n5) Mix all"
+      "ingredients": [
+        "pack Ptitim of Osem",
+        "none onion",
+        "spoon of soup powder"
+      ],
+      "preparation": [
+        "Cut the onion, and spy it.",
+        "Add the Ptitim",
+        "Pour boiling water",
+        "Add the soup powder",
+        "Mix all"
+      ]
     },
     {
       "food": "Cheese cake",
-      "Ingredients": "500g chess 5%\n500g flour",
-      "Preparation": "1) bake the cake"
+      "ingredients": [
+        "500g chess 5%",
+        "500g flour"
+      ],
+      "preparation": [
+        "bake the cake"
+      ]
     },
     {
       "food": "Pizza",
-      "Ingredients": "500 g flour\n300g yellow cheese\n2 pack tomato paste",
-      "Preparation": "1) Make the dough\n2) Put the paste and the cheese on the dough"
+      "ingredients": [
+        "500 g flour",
+        "300g yellow cheese",
+        "2 pack tomato paste"
+      ],
+      "preparation": [
+        "Make the dough",
+        "Put the paste and the cheese on the dough"
+      ]
     },
     {
-      "food": "aaaaaa",
-      "Ingredients": "aaaaaaaaaaa",
-      "Preparation": "aaaaaaaaaaaaaa"
-    },
-    {
-      "food": "bbbbbbbbb",
-      "Ingredients": "ssssssss",
-      "Preparation": "sssssssssssssssss"
-    },
-    {
-      "food": "sssssssssssss",
-      "Ingredients": "ssssssssssss",
-      "Preparation": "ssssssssssss"
-    },
-    {
-      "food": "ccccccccc",
-      "Ingredients": "ccccccccccccc",
-      "Preparation": "cccccccccccccccccccccccc"
-    },
-    {
-      "food": "aaaaaaaaaafff",
-      "Ingredients": "fdffff",
-      "Preparation": "fffffffffffffff"
-    },
-    {
-      "food": "vvvvvvvvvvv",
-      "Ingredients": "vvvvvvvvvv",
-      "Preparation": "vvvvvvvvvvvvvvvvvvv"
-    },
-    {
-      "food": "bbbbbbbbbbfff",
-      "Ingredients": "ffffbbbbbbbbbbbb",
-      "Preparation": "bbbbbbbbbbbbbbbbbbbb"
+      "food": "Shakshuka",
+      "ingredients": [
+        "2 eggs"
+      ],
+      "preparation": [
+        "aaaaaaaaaaa"
+      ]
     }
   ]
 }
